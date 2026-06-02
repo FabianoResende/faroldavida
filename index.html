@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>faroldavida — Mensagens de Luz, Amor e Esperança</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="faroldavida é um espaço gratuito de mensagens de esperança, amor e renovo. Sem cadastro, sem coleta de dados, sem anúncios." />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #050816;
+      --card: #0b1220;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.18);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.4);
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.9);
+      --shadow-subtle: 0 14px 40px rgba(15, 23, 42, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1160px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 26px 20px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+      .shell {
+        padding: 30px 30px 26px;
+      }
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(250, 204, 21, 0.18), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 900px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 0%, #f9fafb, #facc15 35%, #38bdf8 65%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #020617;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-text p {
+      font-size: 0.84rem;
+      color: var(--muted);
+      max-width: 320px;
+    }
+
+    .tagline-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 420px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+      align-self: flex-start;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    nav {
+      margin-bottom: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+    }
+
+    .nav-link {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(250, 204, 21, 0.16), transparent 55%),
+                  var(--bg-soft);
+    }
+
+    .hero-media {
+      position: relative;
+      height: 190px;
+      background-image:
+        linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.1)),
+        url("images/hero-farol.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-overlay-label {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-body {
+      padding: 14px 16px 14px;
+    }
+
+    .hero-title {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .section-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .messages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .messages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .msg-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-md);
+      padding: 12px 12px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .msg-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .msg-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .msg-body {
+      font-size: 0.86rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .msg-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .msg-chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .panel {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .panel-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .panel-badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .generated-message {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 10px;
+      min-height: 80px;
+    }
+
+    .generated-meta {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #020617;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-primary span {
+      font-size: 0.9rem;
+    }
+
+    .btn-secondary {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary span {
+      font-size: 0.86rem;
+    }
+
+    .hint {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .legal-text {
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    .legal-list {
+      margin-top: 6px;
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+    }
+
+    .legal-list li {
+      margin-bottom: 2px;
+    }
+
+    footer {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    @media (min-width: 700px) {
+      footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.74rem;
+    }
+
+    .footer-right {
+      text-align: left;
+    }
+
+    @media (min-width: 700px) {
+      .footer-right {
+        text-align: right;
+      }
+    }
+
+    .footer-right span {
+      color: var(--accent);
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.74rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">
+        <div class="brand-icon">FV</div>
+        <div class="brand-text">
+          <h1>faroldavida</h1>
+          <p>Um espaço silencioso de mensagens de luz, amor e esperança — totalmente gratuito.</p>
+        </div>
+      </div>
+      <div class="tagline-block">
+        <div class="pill">
+          <div class="pill-dot"></div>
+          <span>Sem cadastro • Sem anúncios • Sem coleta de dados pessoais</span>
+        </div>
+        <p class="tagline">
+          Para quem precisa de uma palavra boa em dias difíceis.  
+          Aqui, a tecnologia não invade: ela apenas acende uma luz.
+        </p>
+      </div>
+    </header>
+
+    <nav>
+      <button class="nav-link" onclick="scrollToSection('inicio')">Início</button>
+      <button class="nav-link" onclick="scrollToSection('colecao')">Coleção de mensagens</button>
+      <button class="nav-link" onclick="scrollToSection('sobre')">Sobre o projeto</button>
+      <button class="nav-link" onclick="scrollToSection('privacidade')">Privacidade & Direitos</button>
+    </nav>
+
+    <main id="inicio">
+      <!-- LEFT -->
+      <section class="left">
+        <section class="hero">
+          <div class="hero-media">
+            <!-- Substitua a imagem por uma foto sua ou de banco livre -->
+            <div class="hero-overlay-label">Um farol de palavras em meio à neblina da vida.</div>
+          </div>
+          <div class="hero-body">
+            <h2 class="hero-title">Quando o mundo pesa, uma frase pode ser um farol.</h2>
+            <p class="hero-sub">
+              faroldavida nasceu do desejo de oferecer um lugar seguro, simples e gratuito onde qualquer pessoa
+              possa encontrar mensagens de esperança, amor e renovo — quantas vezes forem necessárias.
+            </p>
+            <p class="hero-note">
+              Não pedimos seu nome, e-mail ou qualquer dado pessoal.  
+              Você entra, lê, respira e segue. Sem rastros, sem cobrança, sem julgamento.
+            </p>
+          </div>
+        </section>
+
+        <section id="colecao">
+          <div class="section-title">Coleção fixa de mensagens</div>
+          <div class="messages-grid">
+            <article class="msg-card">
+              <div class="msg-tag">Renovo</div>
+              <p class="msg-body">
+                Mesmo nos dias em que tudo parece pesado demais, lembre-se: você não está atrasado na vida.
+                Você está no seu tempo — e o seu tempo ainda guarda capítulos lindos que você nem imagina.
+              </p>
+              <div class="msg-meta">
+                <span class="msg-chip">Para dias cansados</span>
+                <span>• sussurro de renovo</span>
+              </div>
+            </article>
+
+            <article class="msg-card">
+              <div class="msg-tag">Amor</div>
+              <p class="msg-body">
+                Você não precisa ser perfeito para ser digno de amor.  
+                Há beleza nas suas falhas, humanidade nas suas dúvidas e coragem em simplesmente continuar tentando.
+              </p>
+              <div class="msg-meta">
+                <span class="msg-chip">Autoestima</span>
+                <span>• abraço em palavras</span>
+              </div>
+            </article>
+
+            <article class="msg-card">
+              <div class="msg-tag">Esperança</div>
+              <p class="msg-body">
+                A vida não é uma linha reta — é um caminho cheio de curvas, pausas e recomeços.
+                E tudo bem se hoje você só conseguir dar um passo pequeno. Passos pequenos também contam.
+              </p>
+              <div class="msg-meta">
+                <span class="msg-chip">Recomeços</span>
+                <span>• luz no fim do dia</span>
+              </div>
+            </article>
+
+            <article class="msg-card">
+              <div class="msg-tag">Silêncio</div>
+              <p class="msg-body">
+                Às vezes, o que você mais precisa não é de respostas, mas de um lugar seguro para sentir.
+                Se este momento for esse lugar, então já valeu a pena você ter chegado aqui.
+              </p>
+              <div class="msg-meta">
+                <span class="msg-chip">Acolhimento</span>
+                <span>• pausa necessária</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="right">
+        <section class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Gerador de Mensagens de Esperança</h3>
+            <span class="panel-badge">IA como apoio, não como dono da verdade</span>
+          </div>
+          <p class="generated-message" id="generatedMessage">
+            Clique em “Gerar nova mensagem” para receber um sussurro de esperança criado a partir de combinações
+            de frases de acolhimento. Use quantas vezes quiser, sem custo e sem limite.
+          </p>
+          <p class="generated-meta" id="generatedMeta">
+            Nenhuma mensagem substitui terapia, fé, amigos ou ajuda profissional.  
+            Este é apenas um espaço gentil para você respirar um pouco melhor.
+          </p>
+          <div class="controls">
+            <button class="btn-primary" id="btnGenerate">
+              <span>✨</span>
+              <span>Gerar nova mensagem</span>
+            </button>
+            <button class="btn-secondary" id="btnCopy">
+              <span>📋</span>
+              <span>Copiar texto</span>
+            </button>
+          </div>
+          <p class="hint" id="copyHint">
+            Se alguma mensagem tocar você, sinta-se à vontade para compartilhar com alguém que esteja precisando.
+          </p>
+        </section>
+
+        <section class="panel" id="sobre">
+          <div class="panel-header">
+            <h3 class="panel-title">Sobre o projeto faroldavida</h3>
+            <span class="panel-badge">Portfólio humano + tecnologia</span>
+          </div>
+          <p class="legal-text">
+            faroldavida é um projeto pessoal criado por <strong>Fabiano Resende</strong> como parte de sua jornada
+            em tecnologia, design e uso responsável de inteligência artificial.
+          </p>
+          <p class="legal-text">
+            O objetivo é simples: oferecer um lugar onde qualquer pessoa possa encontrar palavras de esperança,
+            sem precisar se identificar, sem ser rastreada e sem ser tratada como dado.
+          </p>
+          <p class="legal-text">
+            Toda a lógica do gerador de mensagens acontece <strong>apenas no seu navegador</strong>, sem envio de
+            informações para servidores externos.
+          </p>
+        </section>
+
+        <section class="panel" id="privacidade">
+          <div class="panel-header">
+            <h3 class="panel-title">Privacidade, LGPD e Direitos Autorais</h3>
+            <span class="panel-badge">Transparência em primeiro lugar</span>
+          </div>
+          <p class="legal-text">
+            Este site foi pensado para respeitar a sua privacidade e os direitos autorais de forma simples e direta:
+          </p>
+          <ul class="legal-list">
+            <li><strong>Sem coleta de dados pessoais:</strong> não há formulários, login, cadastro ou campos de identificação.</li>
+            <li><strong>Sem cookies de rastreamento:</strong> não usamos cookies para monitorar comportamento ou criar perfis.</li>
+            <li><strong>Sem analytics invasivo:</strong> não há Google Analytics ou ferramentas similares instaladas.</li>
+            <li><strong>Processamento local:</strong> o gerador de mensagens funciona apenas no seu navegador, sem envio de texto para servidores.</li>
+            <li><strong>Conteúdo autoral:</strong> as mensagens foram criadas especificamente para este projeto, com apoio de IA, e não copiam obras identificáveis de terceiros.</li>
+            <li><strong>Uso não comercial:</strong> o site é gratuito, sem fins lucrativos e não vende nem licencia as mensagens.</li>
+          </ul>
+          <p class="legal-text">
+            Se você reutilizar algum texto deste site, recomenda-se citar a fonte como
+            <em>“Projeto faroldavida — Fabiano Resende”</em>, em respeito ao esforço criativo.
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        <div class="footer-pill">Gratuito e sempre será</div>
+        <div class="footer-pill">Sem anúncios • Sem coleta de dados sensíveis</div>
+      </div>
+      <div class="footer-right">
+        <div>Projeto criado por Fabiano Resende com apoio de IA.</div>
+        <div class="mono">faroldavida © 2026 • <span>uso não comercial</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    const fragmentsStart = [
+      "Mesmo que hoje pareça escuro demais,",
+      "Nos dias em que o peito aperta e o mundo pesa,",
+      "Quando você sentir que não aguenta mais,",
+      "Se o silêncio estiver gritando dentro de você,",
+      "Quando tudo parecer fora do lugar,",
+      "Se o cansaço estiver maior do que as palavras,",
+      "Nos momentos em que a fé parece pequena,",
+      "Quando o coração estiver em pedaços,"
+    ];
+
+    const fragmentsMiddle = [
+      " lembre-se de que você não precisa resolver a vida inteira de uma vez.",
+      " respire fundo e permita-se apenas existir por um instante, sem cobrança.",
+      " saiba que não é fraqueza pedir ajuda, descansar ou chorar.",
+      " entenda que até as pausas fazem parte do caminho.",
+      " lembre que você já sobreviveu a dias que achou que não conseguiria.",
+      " você continua sendo digno de amor, mesmo nos seus dias mais confusos.",
+      " há um cuidado silencioso sobre você, mesmo quando você não percebe.",
+      " você não está atrasado: está apenas vivendo um processo que é só seu."
+    ];
+
+    const fragmentsEnd = [
+      " Um passo pequeno ainda é um passo.",
+      " Você não precisa ser forte o tempo todo para ser incrível.",
+      " O mundo é um lugar melhor porque você existe.",
+      " Há capítulos lindos da sua história que ainda nem começaram.",
+      " Você merece descanso, carinho e gentileza — inclusive de você para você.",
+      " A esperança não grita: ela sussurra. E, se você ouvir com calma, ela ainda está aí.",
+      " Não desista de você. Você é a única pessoa que vai caminhar com você até o fim.",
+      " Um dia de cada vez já é coragem suficiente."
+    ];
+
+    const metaLines = [
+      "Mensagem gerada a partir de combinações de frases de acolhimento. Use como lembrete, não como diagnóstico.",
+      "Este texto é um sussurro digital: não substitui ajuda profissional, mas pode acompanhar você até lá.",
+      "Compartilhe com alguém que você ama — às vezes, uma frase muda o dia de uma pessoa.",
+      "Se alguma parte desta mensagem tocou você, guarde-a. O resto, você pode deixar ir.",
+      "Ler devagar também faz parte da cura. Não tenha pressa com as palavras."
+    ];
+
+    const elMessage = document.getElementById("generatedMessage");
+    const elMeta = document.getElementById("generatedMeta");
+    const elBtnGenerate = document.getElementById("btnGenerate");
+    const elBtnCopy = document.getElementById("btnCopy");
+    const elCopyHint = document.getElementById("copyHint");
+
+    function randomFrom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateMessage() {
+      const start = randomFrom(fragmentsStart);
+      const middle = randomFrom(fragmentsMiddle);
+      const end = randomFrom(fragmentsEnd);
+      const meta = randomFrom(metaLines);
+
+      elMessage.textContent = start + middle + end;
+      elMeta.textContent = meta;
+      elCopyHint.textContent = "Se essa mensagem fez sentido para você, talvez faça sentido para alguém que você ama também.";
+    }
+
+    async function copyMessage() {
+      const fullText = elMessage.textContent + "\n\n" + elMeta.textContent;
+      try {
+        await navigator.clipboard.writeText(fullText);
+        elCopyHint.textContent = "Mensagem copiada. Que ela leve um pouco de luz para onde você decidir enviá-la.";
+      } catch (e) {
+        elCopyHint.textContent = "Não foi possível copiar automaticamente, mas você pode selecionar o texto e copiar manualmente.";
+      }
+    }
+
+    elBtnGenerate.addEventListener("click", generateMessage);
+    elBtnCopy.addEventListener("click", copyMessage);
+  </script>
+</body>
+</html>
